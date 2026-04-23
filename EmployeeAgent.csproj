@@ -8,16 +8,15 @@
     <RootNamespace>EmployeeAgent</RootNamespace>
     <AssemblyName>EmployeeAgent</AssemblyName>
     <UserSecretsId>employee-agent-tutorial</UserSecretsId>
-    <NoWarn>SKEXP0010;SKEXP0001</NoWarn>
+    <NoWarn>SKEXP0010;SKEXP0001;SKEXP0110</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.30.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.30.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Agents.Core" Version="1.30.0-alpha" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="8.0.11" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
-    <PackageReference Include="Azure.Identity" Version="1.13.1" />
   </ItemGroup>
 
   <ItemGroup>
