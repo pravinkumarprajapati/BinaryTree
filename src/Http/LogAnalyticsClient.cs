@@ -31,18 +31,17 @@ public sealed class LogAnalyticsClient
         if (string.IsNullOrWhiteSpace(_options.Endpoint))
             throw new InvalidOperationException("LogAnalytics:Endpoint is not configured.");
 
-        var token = await _credential.GetTokenAsync(
+        /*var token = await _credential.GetTokenAsync(
             new TokenRequestContext(new[] { _options.Scope }),
-            cancellationToken);
+            cancellationToken);*/
 
         var payload = JsonSerializer.Serialize(new { query = _options.Query });
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, _options.Endpoint)
-        {
-            Content = new StringContent(payload, Encoding.UTF8, "application/json")
+        using var request = new HttpRequestMessage(HttpMethod.Get, _options.Endpoint)
+        {            
         };
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
-
+        //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+        request.Headers.Add("X-Api-Key", "OCO9dWICV+YvbTdbX+DRKA==bTxwBdyhHM922D3m");
         using var response = await _http.SendAsync(request, cancellationToken);
 
         if (!response.IsSuccessStatusCode)
